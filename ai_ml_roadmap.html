@@ -1,0 +1,1176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI/ML Mastery Roadmap — From Zero to Founder</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --black: #0a0a0f;
+    --off-white: #f5f3ed;
+    --cream: #ede9df;
+    --muted: #8a8680;
+    --border: rgba(255,255,255,0.08);
+    --card-bg: #13131a;
+    --phase-1: #7b61ff;
+    --phase-2: #00c9a7;
+    --phase-3: #ff6b6b;
+    --phase-4: #ffa940;
+    --phase-5: #52c0f5;
+    --font-display: 'Syne', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
+    --font-mono: 'DM Mono', monospace;
+  }
+
+  body {
+    background: var(--black);
+    color: var(--off-white);
+    font-family: var(--font-body);
+    font-weight: 300;
+    line-height: 1.7;
+    min-height: 100vh;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    padding: 80px 60px 60px;
+    overflow: hidden;
+    border-bottom: 1px solid var(--border);
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -200px; left: -200px;
+    width: 700px; height: 700px;
+    background: radial-gradient(circle, rgba(123,97,255,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    top: -100px; right: -100px;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(0,201,167,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-tag {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--phase-1);
+    border: 1px solid rgba(123,97,255,0.3);
+    padding: 4px 12px;
+    border-radius: 2px;
+    margin-bottom: 28px;
+  }
+  .hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(36px, 5vw, 64px);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    margin-bottom: 20px;
+    max-width: 700px;
+  }
+  .hero h1 span { color: var(--phase-1); }
+  .hero-sub {
+    font-size: 16px;
+    color: var(--muted);
+    max-width: 560px;
+    margin-bottom: 44px;
+    line-height: 1.8;
+  }
+  .stats-row {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+  .stat { border-left: 2px solid var(--border); padding-left: 20px; }
+  .stat-num {
+    font-family: var(--font-display);
+    font-size: 28px;
+    font-weight: 700;
+    display: block;
+  }
+  .stat-label { font-size: 12px; color: var(--muted); font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.1em; }
+
+  /* ── NAV PILLS ── */
+  .nav-bar {
+    padding: 20px 60px;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    background: rgba(10,10,15,0.95);
+    backdrop-filter: blur(12px);
+    z-index: 100;
+  }
+  .nav-pill {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    padding: 6px 14px;
+    border-radius: 40px;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .nav-pill:hover { color: var(--off-white); border-color: rgba(255,255,255,0.2); }
+  .nav-pill.p1 { --c: var(--phase-1); }
+  .nav-pill.p2 { --c: var(--phase-2); }
+  .nav-pill.p3 { --c: var(--phase-3); }
+  .nav-pill.p4 { --c: var(--phase-4); }
+  .nav-pill.p5 { --c: var(--phase-5); }
+  .nav-pill.active { background: var(--c); border-color: var(--c); color: #fff; }
+
+  /* ── MAIN LAYOUT ── */
+  .container { max-width: 1100px; margin: 0 auto; padding: 60px; }
+
+  /* ── PHASE HEADER ── */
+  .phase-block { margin-bottom: 80px; }
+  .phase-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    margin-bottom: 36px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--border);
+  }
+  .phase-number {
+    font-family: var(--font-display);
+    font-size: 72px;
+    font-weight: 800;
+    line-height: 1;
+    color: var(--c);
+    opacity: 0.15;
+    min-width: 90px;
+    letter-spacing: -0.04em;
+  }
+  .phase-meta {}
+  .phase-tag {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--c);
+    margin-bottom: 6px;
+  }
+  .phase-title {
+    font-family: var(--font-display);
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .phase-desc { font-size: 14px; color: var(--muted); max-width: 600px; line-height: 1.7; }
+  .phase-duration {
+    margin-left: auto;
+    text-align: right;
+    flex-shrink: 0;
+  }
+  .duration-num {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--c);
+  }
+  .duration-label { font-size: 11px; color: var(--muted); font-family: var(--font-mono); }
+
+  /* ── TOPIC GRID ── */
+  .topics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .topic-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px 22px;
+    transition: border-color 0.2s;
+    cursor: default;
+  }
+  .topic-card:hover { border-color: rgba(255,255,255,0.14); }
+  .topic-card-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  .topic-icon {
+    width: 28px; height: 28px;
+    border-radius: 6px;
+    background: rgba(255,255,255,0.05);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+  .topic-name {
+    font-family: var(--font-display);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  .topic-desc {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.6;
+    margin-bottom: 14px;
+  }
+  .resources-list { display: flex; flex-direction: column; gap: 6px; }
+  .resource-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    padding: 5px 8px;
+    border-radius: 6px;
+    transition: all 0.15s;
+    border: 1px solid transparent;
+  }
+  .resource-link:hover { background: rgba(255,255,255,0.04); border-color: var(--border); color: var(--off-white); }
+  .res-type {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 2px 6px;
+    border-radius: 3px;
+    flex-shrink: 0;
+    background: rgba(255,255,255,0.06);
+    color: var(--c);
+  }
+  .res-name { flex: 1; line-height: 1.3; }
+
+  /* ── MILESTONE ── */
+  .milestone {
+    background: linear-gradient(135deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%);
+    border: 1px solid var(--c);
+    border-radius: 12px;
+    padding: 24px 28px;
+    margin-top: 28px;
+    position: relative;
+    overflow: hidden;
+  }
+  .milestone::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 2px;
+    background: var(--c);
+    opacity: 0.5;
+  }
+  .milestone-label {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--c);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .milestone-label::before { content: '◆'; font-size: 8px; }
+  .milestone-title {
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  .milestone-desc { font-size: 13px; color: var(--muted); line-height: 1.7; }
+  .deliverables {
+    margin-top: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .deliverable-tag {
+    font-size: 12px;
+    padding: 4px 12px;
+    border-radius: 4px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid var(--border);
+    color: var(--off-white);
+    font-family: var(--font-mono);
+  }
+
+  /* ── TIMELINE STRIP ── */
+  .timeline-strip {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 32px 36px;
+    margin-bottom: 60px;
+  }
+  .timeline-strip h2 {
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 28px;
+    letter-spacing: -0.02em;
+  }
+  .timeline-track {
+    display: flex;
+    gap: 0;
+    border-radius: 8px;
+    overflow: hidden;
+    height: 44px;
+    margin-bottom: 16px;
+  }
+  .timeline-seg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.9);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    transition: filter 0.2s;
+  }
+  .timeline-seg:hover { filter: brightness(1.15); }
+  .tl-labels {
+    display: flex;
+    gap: 0;
+  }
+  .tl-label {
+    font-size: 10px;
+    color: var(--muted);
+    font-family: var(--font-mono);
+    text-align: center;
+    padding: 0 4px;
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    border-top: 1px solid var(--border);
+    padding: 40px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .footer-text { font-size: 13px; color: var(--muted); }
+  .footer-brand {
+    font-family: var(--font-display);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+
+  /* ── PHASE COLOR OVERRIDES ── */
+  .ph1 { --c: var(--phase-1); }
+  .ph2 { --c: var(--phase-2); }
+  .ph3 { --c: var(--phase-3); }
+  .ph4 { --c: var(--phase-4); }
+  .ph5 { --c: var(--phase-5); }
+
+  /* ── SCROLLBAR ── */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 3px; }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-tag">complete learning roadmap · 2024–2026</div>
+  <h1>Your Path to<br><span>AI Leadership</span></h1>
+  <p class="hero-sub">
+    A structured, 18-month journey from fundamentals to founding your own
+    AI consulting firm — covering every essential concept, resource,
+    and milestone project along the way.
+  </p>
+  <div class="stats-row">
+    <div class="stat">
+      <span class="stat-num" style="color:var(--phase-1)">5</span>
+      <span class="stat-label">Phases</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num" style="color:var(--phase-2)">18 mo</span>
+      <span class="stat-label">Total Duration</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num" style="color:var(--phase-3)">25+</span>
+      <span class="stat-label">Core Topics</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num" style="color:var(--phase-4)">60+</span>
+      <span class="stat-label">Resources</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num" style="color:var(--phase-5)">5</span>
+      <span class="stat-label">Milestone Projects</span>
+    </div>
+  </div>
+</section>
+
+<!-- STICKY NAV -->
+<nav class="nav-bar">
+  <a href="#phase1" class="nav-pill p1 active" onclick="setActive(this)">Phase 1 · Foundations</a>
+  <a href="#phase2" class="nav-pill p2" onclick="setActive(this)">Phase 2 · Core ML</a>
+  <a href="#phase3" class="nav-pill p3" onclick="setActive(this)">Phase 3 · Deep Learning</a>
+  <a href="#phase4" class="nav-pill p4" onclick="setActive(this)">Phase 4 · Advanced AI</a>
+  <a href="#phase5" class="nav-pill p5" onclick="setActive(this)">Phase 5 · Business & Leadership</a>
+</nav>
+
+<main class="container">
+
+  <!-- TIMELINE OVERVIEW -->
+  <div class="timeline-strip">
+    <h2>18-Month Overview</h2>
+    <div class="timeline-track">
+      <div class="timeline-seg" style="background: var(--phase-1); width: 20%;">Phase 1</div>
+      <div class="timeline-seg" style="background: var(--phase-2); width: 18%;">Phase 2</div>
+      <div class="timeline-seg" style="background: var(--phase-3); width: 22%;">Phase 3</div>
+      <div class="timeline-seg" style="background: var(--phase-4); width: 20%;">Phase 4</div>
+      <div class="timeline-seg" style="background: var(--phase-5); width: 20%;">Phase 5</div>
+    </div>
+    <div class="tl-labels">
+      <div class="tl-label" style="width:20%">Mo 1–3<br>Foundations</div>
+      <div class="tl-label" style="width:18%">Mo 4–6<br>Core ML</div>
+      <div class="tl-label" style="width:22%">Mo 7–10<br>Deep Learning</div>
+      <div class="tl-label" style="width:20%">Mo 11–14<br>Advanced AI</div>
+      <div class="tl-label" style="width:20%">Mo 15–18<br>Leadership</div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       PHASE 1 · MATHEMATICAL & TECHNICAL FOUNDATIONS
+  ═══════════════════════════════════════ -->
+  <section class="phase-block ph1" id="phase1">
+    <div class="phase-header">
+      <div class="phase-number">01</div>
+      <div class="phase-meta">
+        <div class="phase-tag">Phase 1</div>
+        <div class="phase-title">Mathematical & Technical Foundations</div>
+        <div class="phase-desc">Build the bedrock that every AI/ML concept rests upon. You cannot skip this without hitting a wall later — invest in it properly.</div>
+      </div>
+      <div class="phase-duration">
+        <div class="duration-num">3 months</div>
+        <div class="duration-label">estimated time</div>
+      </div>
+    </div>
+
+    <div class="topics-grid">
+
+      <div class="topic-card">
+        <div class="topic-card-header">
+          <div class="topic-icon">∑</div>
+          <div class="topic-name">Linear Algebra</div>
+        </div>
+        <div class="topic-desc">Vectors, matrices, matrix multiplication, eigenvalues/eigenvectors, SVD. The language that all ML algorithms are written in.</div>
+        <div class="resources-list">
+          <a href="https://www.khanacademy.org/math/linear-algebra" target="_blank" class="resource-link">
+            <span class="res-type">Course</span><span class="res-name">Khan Academy — Linear Algebra</span>
+          </a>
+          <a href="https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab" target="_blank" class="resource-link">
+            <span class="res-type">Video</span><span class="res-name">3Blue1Brown — Essence of Linear Algebra</span>
+          </a>
+          <a href="https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/" target="_blank" class="resource-link">
+            <span class="res-type">Course</span><span class="res-name">MIT 18.06 — Gilbert Strang</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="topic-card">
+        <div class="topic-card-header">
+          <div class="topic-icon">∫</div>
+          <div class="topic-name">Calculus & Optimization</div>
+        </div>
+        <div class="topic-desc">Derivatives, gradients, chain rule, partial derivatives, and the concept of minimizing loss functions via gradient descent.</div>
+        <div class="resources-list">
+          <a href="https://www.youtube.com/playlist?list=PLZHQObOWTQDMsr9K-rj53DwVRMYO3t5Yr" target="_blank" class="resource-link">
+            <span class="res-type">Video</span><span class="res-name">3Blue1Brown — Essence of Calculus</span>
+          </a>
+          <a href="https://www.khanacademy.org/math/multivariable-calculus" target="_blank" class="resource-link">
+            <span class="res-type">Course</span><span class="res-name">Khan Academy — Multivariable Calculus</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="topic-card">
+        <div class="topic-card-header">
+          <div class="topic-icon">σ</div>
+          <div class="topic-name">Probability & Statistics</div>
+        </div>
+        <div class="topic-desc">Distributions, Bayes theorem, expectation, variance, hypothesis testing, p-values, and maximum likelihood estimation.</div>
+        <div class="resources-list">
+          <a href="https://www.youtube.com/playlist?list=PL8dPuuaLjXtNM_Y-bUAhblSAdWRnmBUcr" target="_blank" class="resource-link">
+            <span class="res-type">Video</span><span class="res-name">CrashCourse Statistics (YouTube)</span>
+          </a>
+          <a href="https://www.coursera.org/specializations/statistics-with-python" target="_blank" class="resource-link">
+            <span class="res-type">Course</span><span class="res-name">Statistics with Python — Coursera / UMich</span>
+          </a>
+          <a href="https://www.probabilitycourse.com/" target="_blank" class="resource-link">
+            <span class="res-type">Book</span><span class="res-name">Introduction to Probability — Free Online</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="topic-card">
+        <div class="topic-card-header">
+          <div class="topic-icon">🐍</div>
+          <div class="topic-name">Python for Data Science</div>
+        </div>
+        <div class="topic-desc">Python fundamentals, NumPy, Pandas, Matplotlib/Seaborn, and Jupyter notebooks. Your primary toolkit for every phase ahead.</div>
+        <div class="resources-list">
+          <a href="https://www.fast.ai/posts/2019-01-03-python.html" target="_blank" class="resource-link">
+            <span class="res-type">Guide</span><span class="res-name">fast.ai — Practical Python for DS</span>
+          </a>
+          <a href="https://www.kaggle.com/learn/python" target="_blank" class="resource-link">
+            <span class="res-type">Course</span><span class="res-name">Kaggle Learn — Python (Free)</span>
+          </a>
+          <a href="https://wesmckinney.com/book/" target="_blank" class="resource-link">
+            <span class="res-type">Book</span><span class="res-name">Python for Data Analysis — Wes McKinney</span>
+          </a>
+          <a href="https://www.kaggle.com/learn/pandas" target="_blank" class="resource-link">
+            <span class="res-type">Course</span><span class="res-name">Kaggle Learn — Pandas (Free)</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="topic-card">
+        <div class="topic-card-header">
+          <div class="topic-icon">📊</div>
+          <div class="topic-name">Data Literacy & EDA</div>
+        </div>
+        <div class="topic-desc">Reading and wrangling datasets, exploratory data analysis (EDA), handling missing data, feature types, and data storytelling.</div>
+        <div class="resources-list">
+          <a href="https://www.kaggle.com/learn/data-visualization" target="_blank" class="resource-link">
+            <span class="res-type">Course</span><span class="res-name">Kaggle — Data Visualization (Free)</span>
+          </a>
+          <a href="https://r4ds.had.co.nz/" target="_blank" class="resource-link">
+            <span class="res-type">Book</span><span class="res-name">R for Data Science (free online) — concepts apply to Python too</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="milestone">
+      <div class="milestone-label">Milestone Project — Phase 1</div>
+      <div class="milestone-title">End-to-End Exploratory Data Analysis Report</div>
+      <div class="milestone-desc">
+        Choose a public dataset (e.g. from Kaggle or UCI ML Repository). Write a complete EDA notebook: load and clean the data, visualise distributions, compute correlations, test a hypothesis with a statistical test, and write a 500-word summary of your findings. This demonstrates that your math, Python, and data instincts all work together.
+      </div>
+      <div class="deliverables">
+        <span class="deliverable-tag">Jupyter Notebook</span>
+        <span class="deliverable-tag">5+ Visualisations</span>
+        <span class="deliverable-tag">Hypothesis Test</span>
+        <span class="deliverable-tag">Written Summary</span>
+        <span class="deliverable-tag">GitHub Repo</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       PHASE 2 · CLASSICAL MACHINE LEARNING
+  ═══════════════════════════════════════ -->
+  <section class="phase-block ph2" id="phase2">
+    <div class="phase-header">
+      <div class="phase-number">02</div>
+      <div class="phase-meta">
+        <div class="phase-tag">Phase 2</div>
+        <div class="phase-title">Classical Machine Learning</div>
+        <div class="phase-desc">Master the algorithms that power most real-world business applications today. This is the core of the field and the most in-demand skillset for consultants.</div>
+      </div>
+      <div class="phase-duration">
+        <div class="duration-num">3 months</div>
+        <div class="duration-label">estimated time</div>
+      </div>
+    </div>
+
+    <div class="topics-grid">
+
+      <div class="topic-card">
+        <div class="topic-card-header">
+          <div class="topic-icon">📉</div>
+          <div class="topic-name">Supervised Learning</div>
+        </div>
+        <div class="topic-desc">Linear & logistic regression, decision trees, random forests, gradient boosting (XGBoost/LightGBM), SVM, k-NN. Train/val/test splits, bias-variance tradeoff.</div>
+        <div class="resources-list">
+          <a href="https://www.coursera.org/specializations/machine-learning-introduction" target="_blank" class="resource-link">
+            <span class="res-type">Course</span><span class="res-name">Andrew Ng — ML Specialization (Coursera)</span>
+          </a>
+          <a href="https://scikit-learn.org/stable/tutorial/index.html" target="_blank" class="resource-link">
+            <span class="res-type">Docs</span><span class="res-name">scikit-learn Official Tutorial</span>
+          </a>
+          <a href="https://www.statlearning.com/" target="_blank" class="resource-link">
+            <span class="res-type">Book</span><span class="res-name">Introduction to Statistical Learning (Free PDF)</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="topic-card">
+        <div class="topic-card-header">
+          <div class="topic-icon">🔍</div>
+          <div class="topic-name">Unsupervised Learning</div>
+        </div>
+        <div class="topic-desc">K-means, hierarchical clustering, DBSCAN, PCA, t-SNE, UMAP. Dimensionality reduction and anomaly detection techniques.</div>
+        <div class="resources-list">
+          <a href="https://www.coursera.org/learn/unsupervised-learning-recommenders-reinforcement-learning" target="_blank" class="resource-link">
+            <span class="res-type">Course</span><span class="res-name">Andrew Ng — Unsupervised Learning (Coursera)</span>
+          </a>
+          <a href="https://www.kaggle.com/learn/intro-to-machine-learning" target="_blank" class="resource-link">
+            <span class="res-type">Course</span><span class="res-name">Kaggle — Intro to ML (Free)</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="topic-card">
+        <div class="topic-card-header">
+          <div class="topic-icon">⚙️</div>
+          <div class="topic-name">Model Evaluation & Tuning</div>
+        </div>
+        <div class="topic-desc">Cross-validation, precision/recall/F1, AUC-ROC, confusion matrices, hyperparameter tuning (Grid Search, Optuna), feature importance.</div>
+        <div class="resources-list">
+          <a href="https://machinelearningmastery.com/start-here/#better" target="_blank" class="resource-link">
+            <span class="res-type">Blog</span><span class="res-name">Machine Learning Mastery — Model Performance</span>
+          </a>
+          <a href="https://www.kaggle.com/learn/intermediate-machine-learning" target="_blank" class="resource-link">
+            <span class="res-type">Course</span><span class="res-name">Kaggle — Intermediate ML (Free)</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="topic-card">
+        <div class="topic-card-header">
+          <div class="topic-icon">🔧</div>
+          <div class="topic-name">Feature Engineering</div>
+        </div>
+        <div class="topic-desc">Encoding categorical variables, handling imbalanced data (SMOTE), feature scaling, interaction features, target encoding, pipelines.</div>
+        <div class="resources-list">
+          <a href="https://www.kaggle.com/learn/feature-engineering" target="_blank" class="resource-link">
+            <span class="res-type">Course</span><span class="res-name">Kaggle — Feature Engineering (Free)</span>
+          </a>
+          <a href="https://www.featurestore.org/" target="_blank" class="resource-link">
+            <span class="res-type">Resource</span><span class="res-name">Feature Store — Community Resource</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="topic-card">
+        <div class="topic-card-header">
+          <div class="topic-icon">🏆</div>
+          <div class="topic-name">Kaggle Competitions</div>
+        </div>
+        <div class="topic-desc">Apply everything learned in competitions. Study top solutions, learn from notebooks, and build your public portfolio. Essential for credibility.</div>
+        <div class="resources-list">
+          <a href="https://www.kaggle.com/competitions" target="_blank" class="resource-link">
+            <span class="res-type">Platform</span><span class="res-name">Kaggle Competitions (Start with "Getting Started")</span>
+          </a>
+          <a href="https://www.kaggle.com/learn" target="_blank" class="resource-link">
+            <span class="res-type">Platform</span><span class="res-name">Kaggle Learn — All Free Courses</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="milestone">
+      <div class="milestone-label">Milestone Project — Phase 2</div>
+      <div class="milestone-title">Business Prediction Model with Full Report</div>
+      <div class="milestone-desc">
+        Build a real business prediction model — churn prediction, credit scoring, or demand forecasting. Compare at least 3 algorithms, tune hyperparameters, evaluate rigorously, and produce a non-technical business brief (1–2 pages) alongside the technical notebook. This is the core of consulting work: translating ML into business value.
+      </div>
+      <div class="deliverables">
+        <span class="deliverable-tag">3+ Models Compared</span>
+        <span class="deliverable-tag">Hyperparameter Tuning</span>
+        <span class="deliverable-tag">Evaluation Dashboard</span>
+        <span class="deliverable-tag">Business Brief</span>
+        <span class="deliverable-tag">GitHub Repo</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       PHASE 3 · DEEP LEARNING & NEURAL NETWORKS
+  ═══════════════════════════════════════ -->
+  <section class="phase-block ph3" id="phase3">
+    <div class="phase-header">
+      <div class="phase-number">03</div>
+      <div class="phase-meta">
+        <div class="phase-tag">Phase 3</div>
+        <div class="phase-title">Deep Learning & Neural Networks</div>
+        <div class="phase-desc">Understand the technology powering the AI revolution — from basic neural networks through transformers, CNNs, and modern architectures.</div>
+      </div>
+      <div class="phase-duration">
+        <div class="duration-num">4 months</div>
+        <div class="duration-label">estimated time</div>
+      </div>
+    </div>
+
+    <div class="topics-grid">
+
+      <div class="topic-card">
+        <div class="topic-card-header">
+          <div class="topic-icon">🧠</div>
+          <div class="topic-name">Neural Network Fundamentals</div>
+        </div>
+        <div class="topic-desc">Perceptrons, activation functions, forward & backward propagation, loss functions, gradient descent variants (SGD, Adam). Build from scratch.</div>
+        <div class="resources-list">
+          <a href="https://www.coursera.org/specializations/deep-learning" target="_blank" class="resource-link">
+            <span class="res-type">Course</span><span class="res-name">deeplearning.ai — Deep Learning Specialization</span>
+          </a>
+          <a href="https://www.youtube.com/playlist?list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ" target="_blank" class="resource-link">
+            <span class="res-type">Video</span><span class="res-name">Andrej Karpathy — Neural Nets: Zero to Hero</span>
+          </a>
+          <a href="https://d2l.ai/" target="_blank" class="resource-link">
+            <span class="res-type">Book</span><span class="res-name">Dive into Deep Learning (Free Online)</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="topic-card">
+        <div class="topic-card-header">
+          <div class="topic-icon">🖼️</div>
+          <div class="topic-name">Convolutional Neural Networks</div>
+        </div>
+        <div class="topic-desc">CNN architecture, filters, pooling, ResNet, EfficientNet. Image classification, object detection (YOLO), and transfer learning.</div>
+        <div class="resources-list">
+          <a href="https://cs231n.stanford.edu/" target="_blank" class="resource-link">
+            <span class="res-type">Course</span><span class="res-name">Stanford CS231n — Computer Vision (Free)</span>
+          </a>
+          <a href="https://www.fast.ai/" target="_blank" class="resource-link">
+            <span class="res-type">Course</span><span class="res-name">fast.ai — Practical Deep Learning (Free)</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="topic-card">
+        <div class="topic-card-header">
+          <div class="topic-icon">📝</div>
+          <div class="topic-name">Recurrent Networks & Sequence Models</div>
+        </div>
+        <div class="topic-desc">RNNs, LSTMs, GRUs. Understanding sequential data, vanishing gradients, and why transformers replaced RNNs for most tasks.</div>
+        <div class="resources-list">
+          <a href="https://www.coursera.org/learn/nlp-sequence-models" target="_blank" class="resource-link">
+            <span class="res-type">Course</span><span class="res-name">deeplearning.ai — Sequence Models (Coursera)</span>
+          </a>
+          <a href="https://colah.github.io/posts/2015-08-Understanding-LSTMs/" target="_blank" class="resource-link">
+            <span class="res-type">Blog</span><span class="res-name">Understanding LSTMs — Chris Olah (Classic)</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="topic-card">
+        <div class="topic-card-header">
+          <div class="topic-icon">🤖</div>
+          <div class="topic-name">Transformers & Attention</div>
+        </div>
+        <div class="topic-desc">Self-attention, multi-head attention, positional encoding, encoder-decoder architecture. The foundation of GPT, BERT, and all modern LLMs.</div>
+        <div class="resources-list">
+          <a href="https://jalammar.github.io/illustrated-transformer/" target="_blank" class="resource-link">
+            <span class="res-type">Blog</span><span class="res-name">The Illustrated Transformer — Jay Alammar</span>
+          </a>
+          <a href="https://arxiv.org/abs/1706.03762" target="_blank" class="resource-link">
+            <span class="res-type">Paper</span><span class="res-name">Attention Is All You Need (Original Paper)</span>
+          </a>
+          <a href="https://huggingface.co/learn/nlp-course/chapter1/1" target="_blank" class="resource-link">
+            <span class="res-type">Course</span><span class="res-name">HuggingFace NLP Course (Free)</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="topic-card">
+        <div class="topic-card-header">
+          <div class="topic-icon">🔥</div>
+          <div class="topic-name">PyTorch & Frameworks</div>
+        </div>
+        <div class="topic-desc">Tensors, autograd, training loops, DataLoaders, GPU acceleration. The industry-standard deep learning framework for research and production.</div>
+        <div class="resources-list">
+          <a href="https://pytorch.org/tutorials/" target="_blank" class="resource-link">
+            <span class="res-type">Docs</span><span class="res-name">Official PyTorch Tutorials</span>
+          </a>
+          <a href="https://www.learnpytorch.io/" target="_blank" class="resource-link">
+            <span class="res-type">Course</span><span class="res-name">Zero to Mastery — Learn PyTorch (Free)</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="topic-card">
+        <div class="topic-card-header">
+          <div class="topic-icon">🌐</div>
+          <div class="topic-name">NLP Fundamentals</div>
+        </div>
+        <div class="topic-desc">Tokenization, embeddings (Word2Vec, GloVe, BERT embeddings), text classification, named entity recognition, sentiment analysis.</div>
+        <div class="resources-list">
+          <a href="https://web.stanford.edu/~jurafsky/slp3/" target="_blank" class="resource-link">
+            <span class="res-type">Book</span><span class="res-name">Speech & Language Processing — Jurafsky & Martin (Free)</span>
+          </a>
+          <a href="https://www.coursera.org/specializations/natural-language-processing" target="_blank" class="resource-link">
+            <span class="res-type">Course</span><span class="res-name">deeplearning.ai — NLP Specialization (Coursera)</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="milestone">
+      <div class="milestone-label">Milestone Project — Phase 3</div>
+      <div class="milestone-title">Fine-Tuned NLP Application</div>
+      <div class="milestone-desc">
+        Fine-tune a pre-trained transformer (e.g., BERT or DistilBERT via HuggingFace) on a domain-specific text classification or summarisation task relevant to a business use case (e.g., customer support ticket routing, review sentiment). Deploy it as a simple API with FastAPI or Gradio. Document the performance, limitations, and estimated business value.
+      </div>
+      <div class="deliverables">
+        <span class="deliverable-tag">Fine-Tuned Model</span>
+        <span class="deliverable-tag">FastAPI or Gradio Demo</span>
+        <span class="deliverable-tag">Model Card</span>
+        <span class="deliverable-tag">Performance Report</span>
+        <span class="deliverable-tag">GitHub Repo</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       PHASE 4 · GENERATIVE AI & PRODUCTION
+  ═══════════════════════════════════════ -->
+  <section class="phase-block ph4" id="phase4">
+    <div class="phase-header">
+      <div class="phase-number">04</div>
+      <div class="phase-meta">
+        <div class="phase-tag">Phase 4</div>
+        <div class="phase-title">Generative AI, LLMs & MLOps</div>
+        <div class="phase-desc">Master the technology that's reshaping industries — LLMs, prompt engineering, RAG, agents — and learn how to take AI from notebook to production.</div>
+      </div>
+      <div class="phase-duration">
+        <div class="duration-num">4 months</div>
+        <div class="duration-label">estimated time</div>
+      </div>
+    </div>
+
+    <div class="topics-grid">
+
+      <div class="topic-card">
+        <div class="topic-card-header">
+          <div class="topic-icon">💬</div>
+          <div class="topic-name">Large Language Models</div>
+        </div>
+        <div class="topic-desc">GPT architecture, pretraining, instruction tuning, RLHF, context windows, tokenization. How ChatGPT, Claude, and Gemini actually work.</div>
+        <div class="resources-list">
+          <a href="https://www.deeplearning.ai/short-courses/chatgpt-prompt-engineering-for-developers/" target="_blank" class="resource-link">
+            <span class="res-type">Course</span><span class="res-name">deeplearning.ai — ChatGPT Prompt Engineering (Free)</span>
+          </a>
+          <a href="https://www.youtube.com/watch?v=zjkBMFhNj_g" target="_blank" class="resource-link">
+            <span class="res-type">Video</span><span class="res-name">Andrej Karpathy — Intro to LLMs (1hr)</span>
+          </a>
+          <a href="https://www.anthropic.com/research" target="_blank" class="resource-link">
+            <span class="res-type">Research</span><span class="res-name">Anthropic Research Papers</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="topic-card">
+        <div class="topic-card-header">
+          <div class="topic-icon">🎯</div>
+          <div class="topic-name">Prompt Engineering</div>
+        </div>
+        <div class="topic-desc">System prompts, few-shot learning, chain-of-thought, role prompting, prompt chaining, structured output. The art of steering LLMs reliably.</div>
+        <div class="resources-list">
+          <a href="https://www.promptingguide.ai/" target="_blank" class="resource-link">
+            <span class="res-type">Guide</span><span class="res-name">Prompt Engineering Guide (Free)</span>
+          </a>
+          <a href="https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview" target="_blank" class="resource-link">
+            <span class="res-type">Docs</span><span class="res-name">Anthropic Prompt Engineering Guide</span>
+          </a>
+          <a href="https://learnprompting.org/" target="_blank" class="resource-link">
+            <span class="res-type">Course</span><span class="res-name">Learn Prompting (Free)</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="topic-card">
+        <div class="topic-card-header">
+          <div class="topic-icon">🔗</div>
+          <div class="topic-name">RAG & Vector Databases</div>
+        </div>
+        <div class="topic-desc">Retrieval-Augmented Generation, embedding models, vector stores (Pinecone, Chroma, Weaviate), semantic search, chunking strategies.</div>
+        <div class="resources-list">
+          <a href="https://www.deeplearning.ai/short-courses/langchain-for-llm-application-development/" target="_blank" class="resource-link">
+            <span class="res-type">Course</span><span class="res-name">deeplearning.ai — LangChain for LLMs (Free)</span>
+          </a>
+          <a href="https://www.deeplearning.ai/short-courses/building-and-evaluating-advanced-rag/" target="_blank" class="resource-link">
+            <span class="res-type">Course</span><span class="res-name">deeplearning.ai — Advanced RAG (Free)</span>
+          </a>
+          <a href="https://docs.trychroma.com/" target="_blank" class="resource-link">
+            <span class="res-type">Docs</span><span class="res-name">Chroma Vector DB Documentation</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="topic-card">
+        <div class="topic-card-header">
+          <div class="topic-icon">🤝</div>
+          <div class="topic-name">AI Agents & Tool Use</div>
+        </div>
+        <div class="topic-desc">Agentic frameworks, tool calling, ReAct pattern, multi-agent systems, memory, LangChain, LangGraph, AutoGen. The frontier of applied AI.</div>
+        <div class="resources-list">
+          <a href="https://www.deeplearning.ai/short-courses/ai-agents-in-langgraph/" target="_blank" class="resource-link">
+            <span class="res-type">Course</span><span class="res-name">deeplearning.ai — AI Agents in LangGraph (Free)</span>
+          </a>
+          <a href="https://www.deeplearning.ai/short-courses/multi-ai-agent-systems-with-crewai/" target="_blank" class="resource-link">
+            <span class="res-type">Course</span><span class="res-name">deeplearning.ai — Multi-Agent Systems (Free)</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="topic-card">
+        <div class="topic-card-header">
+          <div class="topic-icon">🚀</div>
+          <div class="topic-name">MLOps & Deployment</div>
+        </div>
+        <div class="topic-desc">Model versioning (MLflow), containerisation (Docker), CI/CD pipelines, model monitoring, data drift detection. Taking AI to production.</div>
+        <div class="resources-list">
+          <a href="https://madewithml.com/" target="_blank" class="resource-link">
+            <span class="res-type">Course</span><span class="res-name">Made With ML — MLOps Course (Free)</span>
+          </a>
+          <a href="https://www.coursera.org/specializations/machine-learning-engineering-for-production-mlops" target="_blank" class="resource-link">
+            <span class="res-type">Course</span><span class="res-name">deeplearning.ai — MLOps Specialization (Coursera)</span>
+          </a>
+          <a href="https://mlops.community/" target="_blank" class="resource-link">
+            <span class="res-type">Community</span><span class="res-name">MLOps Community — Newsletters & Podcasts</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="topic-card">
+        <div class="topic-card-header">
+          <div class="topic-icon">🛡️</div>
+          <div class="topic-name">AI Safety & Ethics</div>
+        </div>
+        <div class="topic-desc">Bias, fairness, interpretability (SHAP, LIME), AI regulation (EU AI Act), responsible AI frameworks, hallucinations, and alignment concepts.</div>
+        <div class="resources-list">
+          <a href="https://www.coursera.org/learn/ai-for-everyone" target="_blank" class="resource-link">
+            <span class="res-type">Course</span><span class="res-name">Andrew Ng — AI For Everyone (Coursera)</span>
+          </a>
+          <a href="https://www.kaggle.com/learn/intro-to-ai-ethics" target="_blank" class="resource-link">
+            <span class="res-type">Course</span><span class="res-name">Kaggle — Intro to AI Ethics (Free)</span>
+          </a>
+          <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:52021PC0206" target="_blank" class="resource-link">
+            <span class="res-type">Law</span><span class="res-name">EU AI Act — Official Text (Key for Consulting)</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="milestone">
+      <div class="milestone-label">Milestone Project — Phase 4</div>
+      <div class="milestone-title">Production-Ready RAG Application for a Business Domain</div>
+      <div class="milestone-desc">
+        Build a fully deployed RAG-based Q&A or knowledge management tool for a realistic business scenario (e.g., internal HR policy assistant, legal document search, technical support bot). Include a vector store, evaluation metrics (faithfulness, relevance), a simple UI, and a cost estimate per query. Write a one-page "AI solution brief" as if pitching it to a client.
+      </div>
+      <div class="deliverables">
+        <span class="deliverable-tag">RAG Pipeline</span>
+        <span class="deliverable-tag">Deployed Demo</span>
+        <span class="deliverable-tag">Evaluation Metrics</span>
+        <span class="deliverable-tag">Cost Analysis</span>
+        <span class="deliverable-tag">Client-Facing Brief</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       PHASE 5 · BUSINESS, STRATEGY & LEADERSHIP
+  ═══════════════════════════════════════ -->
+  <section class="phase-block ph5" id="phase5">
+    <div class="phase-header">
+      <div class="phase-number">05</div>
+      <div class="phase-meta">
+        <div class="phase-tag">Phase 5</div>
+        <div class="phase-title">AI Strategy, Business & Leadership</div>
+        <div class="phase-desc">The bridge between technical mastery and founding a firm. Develop consulting frameworks, business acumen, and the leadership skills that separate advisors from engineers.</div>
+      </div>
+      <div class="phase-duration">
+        <div class="duration-num">4 months</div>
+        <div class="duration-label">estimated time</div>
+      </div>
+    </div>
+
+    <div class="topics-grid">
+
+      <div class="topic-card">
+        <div class="topic-card-header">
+          <div class="topic-icon">♟️</div>
+          <div class="topic-name">AI Strategy for Enterprises</div>
+        </div>
+        <div class="topic-desc">AI maturity models, build vs. buy frameworks, AI ROI calculation, use case prioritisation, data strategy, and organisational readiness.</div>
+        <div class="resources-list">
+          <a href="https://www.coursera.org/learn/ai-for-everyone" target="_blank" class="resource-link">
+            <span class="res-type">Course</span><span class="res-name">AI For Everyone — Andrew Ng (Coursera)</span>
+          </a>
+          <a href="https://hbr.org/topic/subject/artificial-intelligence" target="_blank" class="resource-link">
+            <span class="res-type">Articles</span><span class="res-name">HBR — AI Strategy Articles (Essential Reading)</span>
+          </a>
+          <a href="https://www.mckinsey.com/capabilities/quantumblack/our-insights" target="_blank" class="resource-link">
+            <span class="res-type">Research</span><span class="res-name">McKinsey QuantumBlack AI Insights</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="topic-card">
+        <div class="topic-card-header">
+          <div class="topic-icon">💼</div>
+          <div class="topic-name">Consulting Frameworks</div>
+        </div>
+        <div class="topic-desc">Problem structuring (MECE, issue trees), slide writing, client communication, stakeholder management, discovery workshops, SOW writing.</div>
+        <div class="resources-list">
+          <a href="https://www.amazon.com/McKinsey-Way-Peter-Friga/dp/0071374299" target="_blank" class="resource-link">
+            <span class="res-type">Book</span><span class="res-name">The McKinsey Way — Ethan Rasiel</span>
+          </a>
+          <a href="https://www.amazon.com/Pyramid-Principle-Logic-Writing-Thinking/dp/0273710516" target="_blank" class="resource-link">
+            <span class="res-type">Book</span><span class="res-name">The Pyramid Principle — Barbara Minto</span>
+          </a>
+          <a href="https://lethain.com/staff-engineer-book/" target="_blank" class="resource-link">
+            <span class="res-type">Book</span><span class="res-name">Staff Engineer — Will Larson (Tech Leadership)</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="topic-card">
+        <div class="topic-card-header">
+          <div class="topic-icon">📈</div>
+          <div class="topic-name">AI Product Management</div>
+        </div>
+        <div class="topic-desc">AI product lifecycle, defining success metrics for AI, A/B testing AI features, working with data teams, and translating business problems to ML specs.</div>
+        <div class="resources-list">
+          <a href="https://www.oreilly.com/library/view/building-machine-learning/9781492053187/" target="_blank" class="resource-link">
+            <span class="res-type">Book</span><span class="res-name">Building ML Powered Applications — O'Reilly</span>
+          </a>
+          <a href="https://www.deeplearning.ai/the-batch/" target="_blank" class="resource-link">
+            <span class="res-type">Newsletter</span><span class="res-name">The Batch — deeplearning.ai (Weekly AI News)</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="topic-card">
+        <div class="topic-card-header">
+          <div class="topic-icon">🏢</div>
+          <div class="topic-name">Starting a Consulting Firm</div>
+        </div>
+        <div class="topic-desc">Positioning, pricing models, go-to-market strategy, building a portfolio, thought leadership content, networking, and early-stage business development.</div>
+        <div class="resources-list">
+          <a href="https://www.amazon.com/Million-Dollar-Consulting-Alan-Weiss/dp/1259643530" target="_blank" class="resource-link">
+            <span class="res-type">Book</span><span class="res-name">Million Dollar Consulting — Alan Weiss</span>
+          </a>
+          <a href="https://www.indiehackers.com/" target="_blank" class="resource-link">
+            <span class="res-type">Community</span><span class="res-name">Indie Hackers — Solo Founder Strategies</span>
+          </a>
+          <a href="https://podcasts.apple.com/podcast/lex-fridman-podcast/id1434243584" target="_blank" class="resource-link">
+            <span class="res-type">Podcast</span><span class="res-name">Lex Fridman Podcast — AI Leaders & Founders</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="topic-card">
+        <div class="topic-card-header">
+          <div class="topic-icon">📣</div>
+          <div class="topic-name">Thought Leadership & Personal Brand</div>
+        </div>
+        <div class="topic-desc">Writing AI explainers, LinkedIn presence, speaking at events, publishing case studies. Your public profile is your most valuable consulting asset.</div>
+        <div class="resources-list">
+          <a href="https://substack.com/" target="_blank" class="resource-link">
+            <span class="res-type">Platform</span><span class="res-name">Substack — Publish an AI Newsletter</span>
+          </a>
+          <a href="https://medium.com/tag/artificial-intelligence" target="_blank" class="resource-link">
+            <span class="res-type">Platform</span><span class="res-name">Medium — AI Writing & Reading Community</span>
+          </a>
+          <a href="https://podcasts.apple.com/podcast/hard-fork/id1528594034" target="_blank" class="resource-link">
+            <span class="res-type">Podcast</span><span class="res-name">Hard Fork — NYT Tech / AI Podcast</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="topic-card">
+        <div class="topic-card-header">
+          <div class="topic-icon">🌍</div>
+          <div class="topic-name">Staying Current: Ongoing Learning</div>
+        </div>
+        <div class="topic-desc">The field moves fast. Follow key researchers, read papers, attend conferences, and join communities. Make learning a weekly habit — not a phase.</div>
+        <div class="resources-list">
+          <a href="https://arxiv.org/list/cs.LG/recent" target="_blank" class="resource-link">
+            <span class="res-type">Research</span><span class="res-name">arXiv — Latest ML Papers</span>
+          </a>
+          <a href="https://paperswithcode.com/" target="_blank" class="resource-link">
+            <span class="res-type">Resource</span><span class="res-name">Papers With Code — SOTA Benchmarks</span>
+          </a>
+          <a href="https://www.youtube.com/@AyananshuMahanty" target="_blank" class="resource-link">
+            <span class="res-type">Video</span><span class="res-name">AI Explained (YouTube) — News & Breakthroughs</span>
+          </a>
+          <a href="https://tldr.tech/ai" target="_blank" class="resource-link">
+            <span class="res-type">Newsletter</span><span class="res-name">TLDR AI — Daily Newsletter</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="milestone">
+      <div class="milestone-label">Capstone Project — Phase 5</div>
+      <div class="milestone-title">AI Consulting Case Study & Firm Launch Pack</div>
+      <div class="milestone-desc">
+        Complete a pro-bono or paid AI audit for a small business or non-profit. Deliver a full consulting package: discovery interview notes, a 10-slide AI strategy deck, a prioritised use case roadmap with ROI estimates, and a risk/ethics assessment. Then build your personal consulting website and publish your first thought leadership article. This is your portfolio centrepiece when pitching your first clients.
+      </div>
+      <div class="deliverables">
+        <span class="deliverable-tag">Strategy Deck (10 slides)</span>
+        <span class="deliverable-tag">Use Case Roadmap</span>
+        <span class="deliverable-tag">ROI Model</span>
+        <span class="deliverable-tag">Ethics Assessment</span>
+        <span class="deliverable-tag">Consulting Website</span>
+        <span class="deliverable-tag">Published Article</span>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div>
+    <div class="footer-brand">AI/ML Mastery Roadmap</div>
+    <div class="footer-text" style="margin-top:4px">From Zero to AI Consulting Founder · 18 Months</div>
+  </div>
+  <div class="footer-text" style="text-align:right">
+    Adjust pace to your background &amp; hours/week.<br>
+    Consistency beats intensity. Ship projects publicly.
+  </div>
+</footer>
+
+<script>
+function setActive(el) {
+  document.querySelectorAll('.nav-pill').forEach(p => p.classList.remove('active'));
+  el.classList.add('active');
+}
+window.addEventListener('scroll', () => {
+  const sections = ['phase1','phase2','phase3','phase4','phase5'];
+  let current = sections[0];
+  sections.forEach(id => {
+    const el = document.getElementById(id);
+    if (el && window.scrollY >= el.offsetTop - 120) current = id;
+  });
+  document.querySelectorAll('.nav-pill').forEach(p => {
+    p.classList.toggle('active', p.getAttribute('href') === '#' + current);
+  });
+});
+</script>
+
+</body>
+</html>
