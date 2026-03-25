@@ -46,6 +46,8 @@ Every phase includes **curated resources**, **hands-on Jupyter notebooks**, and 
   - [x] Lesson 3: Linear dependence & independence
   - [x] Lesson 4: Subspaces & the basis for a subspace
   - [x] Lesson 5: Vector dot & cross products (dot product, magnitude, Cauchy-Schwarz inequality)
+  - [x] Lesson 6: Matrices for solving systems by elimination (RREF, augmented matrices)
+  - [x] Lesson 7: Null space and column space
 - [ ] Linear Algebra — Unit 2: Matrix transformations
 - [ ] Calculus & Optimization
 - [ ] Probability & Statistics
@@ -158,14 +160,17 @@ Mo 1–3          Mo 4–6          Mo 7–10         Mo 11–14        Mo 15–
 
 ```
 .
-├── 📄 README.md                           ← You are here
-├── 🌐 ai_ml_roadmap.html                 ← Interactive roadmap (open in browser)
-├── 📓 latex_cheatsheet.ipynb              ← LaTeX/KaTeX reference for notebooks
-├── 📓 markdown_cheatsheet.ipynb           ← Markdown formatting reference
-├── 📂 phase1/                             ← Phase 1 notebooks & notes
-│   └── 📓 linear_algebra_khan_academy.ipynb  ← Khan Academy linear algebra study notes
-├── 📂 .venv/                              ← Python virtual environment (git-ignored)
-└── 📂 .vscode/                            ← VS Code workspace settings (git-ignored)
+├── 📄 .gitignore                           ← Files to ignore in Git
+├── 📄 README.md                            ← You are here
+├── 📄 requirements.txt                     ← Python dependencies
+├── 🌐 ai_ml_roadmap.html                  ← Interactive roadmap (open in browser)
+├── 📓 latex_cheatsheet.ipynb               ← LaTeX/KaTeX reference for notebooks
+├── 📓 markdown_cheatsheet.ipynb            ← Markdown formatting reference
+├── 📂 phase1/                              ← Phase 1 notebooks & notes
+│   └── 📂 linear_algebra_khan_academy/     ← Khan Academy linear algebra notes
+│       └── 📓 linear_algebra_khan_academy_unit_1.ipynb
+├── 📂 .venv/                               ← Python virtual environment
+└── 📂 .vscode/                             ← VS Code settings
 ```
 
 > **Convention:** As the roadmap progresses, new folders (`phase2/`, `phase3/`, etc.) will be created to keep notebooks and project files organized by phase.
